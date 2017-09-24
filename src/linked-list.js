@@ -75,7 +75,14 @@ class LinkedList {
         this._tail = temp;
     }
 
-    indexOf(data) {}
+    indexOf(data) {
+        let node = this._head;
+        for (let i=0; i<this.length; i++) {
+            if (node.data === data) return i;
+            node = node.next;
+        }
+        return -1;
+    }
 }
 
 module.exports = LinkedList;
