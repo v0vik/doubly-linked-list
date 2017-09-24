@@ -46,9 +46,8 @@ class LinkedList {
             index--;
         }
 
-        let insertedNode = new Node(data, node.prev, node);
-        node = node.prev.next = insertedNode;
-
+        node.data = data;
+        return this;
     }
 
     isEmpty() {
