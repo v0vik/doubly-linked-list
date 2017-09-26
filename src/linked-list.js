@@ -39,6 +39,17 @@ class LinkedList {
         return node.data;
     }
 
+    // insertAt(index, data) {
+    //     let node = this._head;
+    //     while ( index > 0 ) {
+    //         node = node.next;
+    //         index--;
+    //     }
+
+    //     node.data = data;
+    //     return this;
+    // }
+
     insertAt(index, data) {
         let node = this._head;
         while ( index > 0 ) {
@@ -46,7 +57,14 @@ class LinkedList {
             index--;
         }
 
-        node.data = data;
+        if (node.prev === null) {
+            let newNode = new Node(data, null, this._head);
+            node.prev = this._head = newNode;         
+        } else {
+            let newNode = new Node(data, node.prev, node);
+            node.prev.next = newNode;
+            node.prev = newNode;
+        }
         return this;
     }
 
